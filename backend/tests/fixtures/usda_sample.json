@@ -1,0 +1,241 @@
+{
+  "FoundationFoods": [
+    {
+      "fdcId": 170889,
+      "description": "Chicken, breast, meat only, cooked, roasted",
+      "dataType": "Foundation",
+      "foodCategory": {
+        "description": "Poultry Products"
+      },
+      "foodNutrients": [
+        {
+          "nutrient": {
+            "id": 1008,
+            "number": "1008",
+            "name": "Energy",
+            "unitName": "kcal"
+          },
+          "amount": 165.0
+        },
+        {
+          "nutrient": {
+            "id": 1003,
+            "number": "203",
+            "name": "Protein",
+            "unitName": "g"
+          },
+          "amount": 31.02
+        },
+        {
+          "nutrient": {
+            "id": 1004,
+            "number": "204",
+            "name": "Total lipid (fat)",
+            "unitName": "g"
+          },
+          "amount": 3.57
+        },
+        {
+          "nutrient": {
+            "id": 1005,
+            "number": "205",
+            "name": "Carbohydrate, by difference",
+            "unitName": "g"
+          },
+          "amount": 0.0
+        },
+        {
+          "nutrient": {
+            "id": 1079,
+            "number": "291",
+            "name": "Fiber, total dietary",
+            "unitName": "g"
+          },
+          "amount": 0.0
+        },
+        {
+          "nutrient": {
+            "id": 1093,
+            "number": "307",
+            "name": "Sodium, Na",
+            "unitName": "mg"
+          },
+          "amount": 74.0
+        }
+      ],
+      "foodPortions": [
+        {
+          "id": 204321,
+          "portionDescription": "1 breast, bone and skin removed",
+          "gramWeight": 174.0,
+          "sequenceNumber": 1
+        },
+        {
+          "id": 204322,
+          "portionDescription": "1 unit, cooked, yields",
+          "gramWeight": 86.0,
+          "sequenceNumber": 2
+        }
+      ]
+    },
+    {
+      "fdcId": 171287,
+      "description": "Egg, whole, raw, fresh",
+      "dataType": "Foundation",
+      "foodCategory": {
+        "description": "Dairy and Egg Products"
+      },
+      "foodNutrients": [
+        {
+          "nutrient": {
+            "id": 1008,
+            "number": "1008",
+            "name": "Energy",
+            "unitName": "kcal"
+          },
+          "amount": 143.0
+        },
+        {
+          "nutrient": {
+            "id": 1003,
+            "number": "203",
+            "name": "Protein",
+            "unitName": "g"
+          },
+          "amount": 12.56
+        },
+        {
+          "nutrient": {
+            "id": 1004,
+            "number": "204",
+            "name": "Total lipid (fat)",
+            "unitName": "g"
+          },
+          "amount": 9.51
+        },
+        {
+          "nutrient": {
+            "id": 1005,
+            "number": "205",
+            "name": "Carbohydrate, by difference",
+            "unitName": "g"
+          },
+          "amount": 0.72
+        }
+      ],
+      "foodPortions": [
+        {
+          "id": 205111,
+          "portionDescription": "1 large",
+          "gramWeight": 50.0,
+          "sequenceNumber": 1
+        }
+      ]
+    },
+    {
+      "fdcId": 999999,
+      "description": "",
+      "dataType": "Foundation",
+      "foodNutrients": []
+    },
+    {
+      "fdcId": 888888,
+      "description": "Incomplete Food without Protein",
+      "dataType": "Foundation",
+      "foodNutrients": [
+        {
+          "nutrient": {
+            "id": 1008,
+            "number": "1008",
+            "name": "Energy",
+            "unitName": "kcal"
+          },
+          "amount": 100.0
+        },
+        {
+          "nutrient": {
+            "id": 1004,
+            "number": "204",
+            "name": "Total lipid (fat)",
+            "unitName": "g"
+          },
+          "amount": 5.0
+        },
+        {
+          "nutrient": {
+            "id": 1005,
+            "number": "205",
+            "name": "Carbohydrate, by difference",
+            "unitName": "g"
+          },
+          "amount": 10.0
+        }
+      ]
+    }
+  ],
+  "SRLegacyFoods": [
+    {
+      "fdcId": 1101825,
+      "description": "Milk, whole, 3.25% milkfat",
+      "dataType": "SR Legacy",
+      "foodCategory": {
+        "description": "Dairy and Egg Products"
+      },
+      "foodNutrients": [
+        {
+          "nutrient": {
+            "id": 1008,
+            "number": "208",
+            "name": "Energy",
+            "unitName": "kcal"
+          },
+          "amount": 61.0
+        },
+        {
+          "nutrient": {
+            "id": 1003,
+            "number": "203",
+            "name": "Protein",
+            "unitName": "g"
+          },
+          "amount": 3.27
+        },
+        {
+          "nutrient": {
+            "id": 1004,
+            "number": "204",
+            "name": "Total lipid (fat)",
+            "unitName": "g"
+          },
+          "amount": 3.2
+        },
+        {
+          "nutrient": {
+            "id": 1005,
+            "number": "205",
+            "name": "Carbohydrate, by difference",
+            "unitName": "g"
+          },
+          "amount": 4.63
+        },
+        {
+          "nutrient": {
+            "id": 2000,
+            "number": "269",
+            "name": "Sugars, total including NLEA",
+            "unitName": "g"
+          },
+          "amount": 4.81
+        }
+      ],
+      "foodPortions": [
+        {
+          "id": 206111,
+          "modifier": "1 cup",
+          "gramWeight": 244.0,
+          "sequenceNumber": 1
+        }
+      ]
+    }
+  ]
+}

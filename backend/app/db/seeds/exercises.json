@@ -1,0 +1,114 @@
+[
+  {
+    "name": "Barbell Bench Press",
+    "category": "strength",
+    "muscle_groups": ["chest", "triceps", "shoulders"],
+    "equipment": "barbell",
+    "description": "Compound upper body horizontal press targeting the pectoralis major.",
+    "instructions": "Lie flat on bench, unrack bar, lower to mid-chest, and press up until arms are extended."
+  },
+  {
+    "name": "Incline Dumbbell Press",
+    "category": "strength",
+    "muscle_groups": ["chest", "shoulders", "triceps"],
+    "equipment": "dumbbell",
+    "description": "Upper chest pressing movement on an inclined bench.",
+    "instructions": "Set bench to 30-45 degrees, press dumbbells upward in an arc over the clavicles."
+  },
+  {
+    "name": "Barbell Back Squat",
+    "category": "strength",
+    "muscle_groups": ["quadriceps", "glutes", "hamstrings", "calves"],
+    "equipment": "barbell",
+    "description": "Foundational lower body compound exercise for quad and hip development.",
+    "instructions": "Place bar across upper traps, squat down until hips break parallel, drive through mid-foot to stand."
+  },
+  {
+    "name": "Barbell Deadlift",
+    "category": "strength",
+    "muscle_groups": ["hamstrings", "glutes", "lower_back", "lats", "traps"],
+    "equipment": "barbell",
+    "description": "Full-body posterior chain pull from the floor.",
+    "instructions": "Hinge at hips, grip bar outside legs, engage lats, push floor away through heels until standing upright."
+  },
+  {
+    "name": "Overhead Press",
+    "category": "strength",
+    "muscle_groups": ["shoulders", "triceps", "upper_chest"],
+    "equipment": "barbell",
+    "description": "Vertical pressing movement from front rack to overhead lockout.",
+    "instructions": "Stand tall with core braced, press bar vertically overhead locking elbows and shoulders."
+  },
+  {
+    "name": "Pull-Up",
+    "category": "strength",
+    "muscle_groups": ["lats", "biceps", "upper_back"],
+    "equipment": "bodyweight",
+    "description": "Bodyweight vertical pull targeting the latissimus dorsi.",
+    "instructions": "Hang from bar with overhand grip, pull chest toward bar until chin clears, lower with control."
+  },
+  {
+    "name": "Barbell Bent-Over Row",
+    "category": "strength",
+    "muscle_groups": ["lats", "rhomboids", "rear_delts", "biceps"],
+    "equipment": "barbell",
+    "description": "Horizontal pulling exercise for mid and upper back thickness.",
+    "instructions": "Hinge forward at 45 degrees, pull barbell to lower ribcage keeping elbows tucked, lower with control."
+  },
+  {
+    "name": "Dumbbell Bicep Curl",
+    "category": "strength",
+    "muscle_groups": ["biceps", "forearms"],
+    "equipment": "dumbbell",
+    "description": "Isolation exercise for the biceps brachii.",
+    "instructions": "Hold dumbbells at sides with palms forward, curl weight toward shoulders without swinging elbows."
+  },
+  {
+    "name": "Tricep Cable Pushdown",
+    "category": "strength",
+    "muscle_groups": ["triceps"],
+    "equipment": "cable",
+    "description": "Isolation exercise for the triceps using a cable stack.",
+    "instructions": "Grip rope or bar attachment with elbows pinned to ribs, extend arms downward until fully locked out."
+  },
+  {
+    "name": "Romanian Deadlift",
+    "category": "strength",
+    "muscle_groups": ["hamstrings", "glutes", "lower_back"],
+    "equipment": "barbell",
+    "description": "Hip-hinge movement focusing on hamstring eccentric loading and hypertrophy.",
+    "instructions": "Start from standing, push hips backward with soft knees, lower bar along shins until hamstrings stretch, drive hips forward."
+  },
+  {
+    "name": "Running",
+    "category": "cardio",
+    "muscle_groups": ["quadriceps", "hamstrings", "calves", "cardiovascular"],
+    "equipment": "none",
+    "description": "Continuous aerobic running for cardiovascular endurance and calorie expenditure.",
+    "instructions": "Maintain upright posture, mid-foot strike, steady cadence, and controlled breathing rhythm."
+  },
+  {
+    "name": "Stationary Cycling",
+    "category": "cardio",
+    "muscle_groups": ["quadriceps", "glutes", "calves", "cardiovascular"],
+    "equipment": "machine",
+    "description": "Low-impact stationary indoor cycling for aerobic conditioning.",
+    "instructions": "Adjust saddle height to slight knee flexion at bottom pedal stroke, maintain consistent cadence."
+  },
+  {
+    "name": "Plank",
+    "category": "balance",
+    "muscle_groups": ["abdominals", "obliques", "lower_back"],
+    "equipment": "bodyweight",
+    "description": "Isometric core stabilization hold.",
+    "instructions": "Hold pushup position on forearms, maintaining rigid straight line from shoulders to ankles."
+  },
+  {
+    "name": "Hamstring Static Stretch",
+    "category": "flexibility",
+    "muscle_groups": ["hamstrings"],
+    "equipment": "none",
+    "description": "Static stretch to increase hamstring flexibility and hip mobility.",
+    "instructions": "Extend one leg forward on heel, hinge at hips with flat back until a gentle stretch is felt in posterior thigh."
+  }
+]
