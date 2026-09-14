@@ -11,6 +11,7 @@ from app.api.v1.routes import (
     profile,
     progress,
     rag,
+    recommendations,
     users,
     workouts,
 )
@@ -28,3 +29,4 @@ api_v1_router.include_router(exercises.router)
 api_v1_router.include_router(workouts.router)
 api_v1_router.include_router(ai.router)
 api_v1_router.include_router(rag.router)
+api_v1_router.include_router(recommendations.router)
