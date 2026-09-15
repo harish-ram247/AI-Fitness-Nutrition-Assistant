@@ -63,3 +63,49 @@ class MealRecommendationResponse(BaseModel):
     total_survived_filtering: int
     disclaimer: str
     metadata: dict[str, Any] = Field(default_factory=dict)
+
+
+class WorkoutExerciseResponse(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+
+    exercise_id: uuid.UUID
+    exercise_name: str
+    category: str
+    muscle_groups: list[str] = Field(default_factory=list)
+    equipment: str | None = None
+    order_index: int
+    recommended_sets: int
+    recommended_reps: int | None = None
+    recommended_duration_seconds: int | None = None
+    recommended_rest_seconds: int
+
+
+class WorkoutRecommendationItem(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+
+    id: str
+    name: str
+    workout_type: str
+    category: str
+    target_muscle_groups: list[str] = Field(default_factory=list)
+    estimated_duration_minutes: int
+    total_sets: int
+    primary_equipment_needed: list[str] = Field(default_factory=list)
+    variant: str
+    score: float
+    reasons: list[str] = Field(default_factory=list)
+    factor_scores: list[FactorScoreResponse] = Field(default_factory=list)
+    exercises: list[WorkoutExerciseResponse] = Field(default_factory=list)
+
+
+class WorkoutRecommendationResponse(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+
+    recommendation_type: str = "workout"
+    target_duration_minutes: int
+    workout_type: str | None = None
+    items: list[WorkoutRecommendationItem] = Field(default_factory=list)
+    total_generated: int
+    total_survived_filtering: int
+    disclaimer: str
+    metadata: dict[str, Any] = Field(default_factory=dict)
