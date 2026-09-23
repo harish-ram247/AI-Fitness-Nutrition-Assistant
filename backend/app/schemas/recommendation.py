@@ -48,6 +48,8 @@ class MealRecommendationItem(BaseModel):
     score: float
     reasons: list[str]
     factor_scores: list[FactorScoreResponse]
+    ai_explanation: str | None = None
+    ai_rank: int | None = None
 
 
 class MealRecommendationResponse(BaseModel):
@@ -63,6 +65,10 @@ class MealRecommendationResponse(BaseModel):
     total_survived_filtering: int
     disclaimer: str
     metadata: dict[str, Any] = Field(default_factory=dict)
+    ai_used: bool = False
+    ai_fallback: bool = False
+    ai_summary: str | None = None
+    ai_considerations: list[str] = Field(default_factory=list)
 
 
 class WorkoutExerciseResponse(BaseModel):
@@ -96,6 +102,8 @@ class WorkoutRecommendationItem(BaseModel):
     reasons: list[str] = Field(default_factory=list)
     factor_scores: list[FactorScoreResponse] = Field(default_factory=list)
     exercises: list[WorkoutExerciseResponse] = Field(default_factory=list)
+    ai_explanation: str | None = None
+    ai_rank: int | None = None
 
 
 class WorkoutRecommendationResponse(BaseModel):
@@ -109,3 +117,7 @@ class WorkoutRecommendationResponse(BaseModel):
     total_survived_filtering: int
     disclaimer: str
     metadata: dict[str, Any] = Field(default_factory=dict)
+    ai_used: bool = False
+    ai_fallback: bool = False
+    ai_summary: str | None = None
+    ai_considerations: list[str] = Field(default_factory=list)

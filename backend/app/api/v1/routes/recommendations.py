@@ -18,9 +18,12 @@ from typing import Any
 from fastapi import APIRouter, Depends, HTTPException, Query, status
 from sqlalchemy.ext.asyncio import AsyncSession
 
+from app.ai.providers.base import AbstractLLMProvider
+from app.api.dependencies.ai import get_llm_provider, get_rag_service
 from app.api.dependencies.auth import get_current_user
 from app.api.dependencies.database import get_db
 from app.models.user import User
+from app.recommendations.ai.service import AIRecommendationService
 from app.recommendations.meals.context_builder import MealRecommendationContextBuilder
 from app.recommendations.meals.service import MealRecommendationService
 from app.recommendations.workouts.context_builder import WorkoutRecommendationContextBuilder
@@ -33,6 +36,7 @@ from app.repositories.nutrition_repository import NutritionRepository
 from app.repositories.workout_repository import WorkoutRepository
 from app.schemas.recommendation import MealRecommendationResponse, WorkoutRecommendationResponse
 from app.services.nutrition_service import NutritionService
+from app.services.rag_service import RAGService
 
 router = APIRouter(prefix="/recommendations", tags=["recommendations"])
 
@@ -61,6 +65,16 @@ def _get_workout_service(db: AsyncSession = Depends(get_db)) -> WorkoutRecommend
     return WorkoutRecommendationService(
         context_builder=context_builder,
         generator=generator,
+    )
+
+
+def _get_ai_recommendation_service(
+    llm_provider: AbstractLLMProvider = Depends(get_llm_provider),
+    rag_service: RAGService = Depends(get_rag_service),
+) -> AIRecommendationService:
+    return AIRecommendationService(
+        llm_provider=llm_provider,
+        rag_service=rag_service,
     )
 
 
@@ -103,9 +117,17 @@ async def get_meal_recommendations(
         le=20,
         description="Maximum number of meal recommendations to return.",
     ),
+    include_ai: bool = Query(
+        False,
+        description=(
+            "Enable AI explanation, personalization, and validated ranking on top of "
+            "deterministic recommendations."
+        ),
+    ),
     current_user: User = Depends(get_current_user),
     db: AsyncSession = Depends(get_db),
     meal_service: MealRecommendationService = Depends(_get_meal_service),
+    ai_service: AIRecommendationService = Depends(_get_ai_recommendation_service),
 ) -> Any:
     # Default meal_type to "lunch" with metadata flag
     effective_meal_type = meal_type if meal_type is not None else "lunch"
@@ -125,6 +147,13 @@ async def get_meal_recommendations(
         result.setdefault("metadata", {})
         result["metadata"]["meal_type_defaulted"] = True
         result["metadata"]["meal_type"] = "lunch"
+
+    if include_ai:
+        result = await ai_service.enrich_meal_recommendations(
+            user=current_user,
+            response_dict=result,
+            db=db,
+        )
 
     return result
 
@@ -163,8 +192,17 @@ async def get_workout_recommendations(
         le=10,
         description="Maximum number of workout recommendations to return (1-10, default 5).",
     ),
+    include_ai: bool = Query(
+        False,
+        description=(
+            "Enable AI explanation, personalization, and validated ranking on top of "
+            "deterministic recommendations."
+        ),
+    ),
     current_user: User = Depends(get_current_user),
+    db: AsyncSession = Depends(get_db),
     workout_service: WorkoutRecommendationService = Depends(_get_workout_service),
+    ai_service: AIRecommendationService = Depends(_get_ai_recommendation_service),
 ) -> Any:
     if workout_type is not None:
         cleaned_type = workout_type.strip().lower()
@@ -178,10 +216,19 @@ async def get_workout_recommendations(
     else:
         effective_type = None
 
-    return await workout_service.recommend(
+    result = await workout_service.recommend(
         user=current_user,
         target_duration_minutes=target_duration_minutes,
         workout_type=effective_type,
         equipment=equipment,
         limit=limit,
     )
+
+    if include_ai:
+        result = await ai_service.enrich_workout_recommendations(
+            user=current_user,
+            response_dict=result,
+            db=db,
+        )
+
+    return result
