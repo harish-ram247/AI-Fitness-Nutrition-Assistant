@@ -45,8 +45,8 @@ export function getSafeReturnTo(rawReturnTo: string | null | undefined, defaultP
 
   const trimmed = rawReturnTo.trim();
 
-  // Must begin with '/' and not '//' or '/\'
-  if (!trimmed.startsWith('/') || trimmed.startsWith('//') || trimmed.startsWith('/\\')) {
+  // Must begin with '/' and not '//' or contain any backslash '\' (preventing open redirect bypasses like CVE-2025-68470)
+  if (!trimmed.startsWith('/') || trimmed.startsWith('//') || trimmed.includes('\\')) {
     return defaultPath;
   }
 

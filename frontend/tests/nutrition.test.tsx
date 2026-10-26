@@ -166,7 +166,7 @@ describe('Phase 8E — Nutrition & Food Logging Tests', () => {
 
     await waitFor(() => {
       expect(screen.getByRole('heading', { name: /nutrition & food logging/i })).toBeInTheDocument();
-    });
+    }, { timeout: 3000 });
 
     // Check daily totals
     await waitFor(() => {

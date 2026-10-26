@@ -145,9 +145,11 @@ describe('Phase 8I — Testing, Accessibility & Production Build Polish', () => 
     expect(getSafeReturnTo('/nutrition?date=2026-09-24')).toBe('/nutrition?date=2026-09-24');
     expect(getSafeReturnTo('/workouts/session-123')).toBe('/workouts/session-123');
 
-    // Protocol-relative URLs (open redirect vector)
+    // Protocol-relative and backslash URLs (open redirect vectors including CVE-2025-68470 bypasses)
     expect(getSafeReturnTo('//evil.example.com')).toBe('/dashboard');
     expect(getSafeReturnTo('/\\evil.example.com')).toBe('/dashboard');
+    expect(getSafeReturnTo('/profile\\evil.example.com')).toBe('/dashboard');
+    expect(getSafeReturnTo('\\evil.example.com')).toBe('/dashboard');
 
     // Absolute URLs with protocols
     expect(getSafeReturnTo('https://evil.example.com')).toBe('/dashboard');

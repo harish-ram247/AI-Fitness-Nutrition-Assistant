@@ -36,5 +36,6 @@ export default defineConfig({
     environment: 'jsdom',
     setupFiles: './tests/setup.ts',
     css: false,
+    clearMocks: true,
   },
 } as VitestUserConfig);
